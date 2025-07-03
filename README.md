@@ -1,4 +1,4 @@
-# student-management-system-deploy# Student Management System - Deployment Guide
+# Student Management System - Deployment Guide
 
 
 ## Pull and Run using Docker Compose
