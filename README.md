@@ -12,6 +12,7 @@ docker pull nhan295/student-management-system-mysql
 ```bash
 git clone https://github.com/ban-ten/student-management-system-deploy.git
 cd student-management-system-deploy
+docker-compose pull
 docker-compose up -d
 ```
 
