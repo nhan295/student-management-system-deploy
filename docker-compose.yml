@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  backend:
+    image: nhan295/student-management-system-backend:latest
+    ports:
+      - "5000:3000"
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_USER=root
+      - DB_PASSWORD=
+      - DB_NAME=qlyhocvien
+    restart: unless-stopped
+
+  frontend:
+    image: nhan295/student-management-system-frontend:latest
+    ports:
+      - "3000:80"
+    environment:
+      - REACT_APP_API_URL=http://localhost:3000
+    restart: unless-stopped
+
+  db:
+    image: nhan295/student-management-system-mysql:latest
+    ports:
+      - "3307:3306"
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+      - MYSQL_DATABASE=qlyhocvien
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: unless-stopped
+
+volumes:
+  db_data:
